@@ -88,7 +88,12 @@ app.post('/upload_photos', function (req, res) {
             filename = Date.now() + '-' + file.name;
 
             // Move the file with the new file name
-            fs.rename(file.path, path.join(__dirname, 'uploads/' + filename));
+            fs.rename(file.path, path.join(__dirname, 'uploads/' + filename), function(err) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+            });
 
             // Add to the list of photos
             photos.push({
@@ -125,30 +130,24 @@ app.post('/upload_photos', function (req, res) {
 
 
 app.post('/generate_xls',function(req,res) {
+    req.setTimeout(0);
     // console.log(req.body.img);
     // let img = "C:/Users/user/Documents/Excalibur/Webapp/main/"; 
     let img = "./";
     img += req.body.img;
-    console.log(img);
-    // var spawn = require("child_process").spawn;
-
-    // var process = spawn('python',["./python/Testing.py",img] );
-
-    // process.stdout.on('data', function(data) {
-    //     console.log(data.toString());
-    //     res.send(data.toString());
-    // });
+    // console.log(img);
     
     var options = {
-        args: [img],
-        scriptPath: "./"
+        scriptPath: "./",
+        args: img
       };
       
       PythonShell.run('Testing.py',options, function (err, results) {
+        
         if (err) 
         res.send(err);
         // Results is an array consisting of messages collected during execution
-        console.log('results: %j', results);
+        console.log(results);
         res.send(results);
       });
 });
@@ -157,3 +156,4 @@ app.post('/generate_xls',function(req,res) {
 app.listen(app.get('port'), function() {
     console.log('Express started at port ' + app.get('port'));
 });
+

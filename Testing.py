@@ -1,0 +1,33 @@
+import cv2
+import numpy as np
+import detectLines
+import vertical
+import roi
+import rectangle
+import sys
+
+print(sys.argv[1])
+img =  cv2.imread(sys.argv[1])
+# img = cv2.imread(input("Enter the name of the image : "))
+print(img.shape)
+
+    # Resize image to appt proportion
+resized_img = rectangle.resize(img)
+
+    # Extract table and change Perspective
+rect_img = rectangle.draw(resized_img)
+
+    # Detect Horizontal Lines
+horizontal_lines = detectLines.detect(rect_img)
+    # Detect Vertical Lines
+vertical_lines = vertical.detect(rect_img)
+
+    # Create Cells and Call predictor on each cell
+roi.create_row(rect_img,horizontal_lines,vertical_lines)
+
+
+    #cv2.imshow("Rectangle",rect_img)
+    #cv2.imshow("Original",img)
+print("Success")
+sys.stdout.flush()
+
