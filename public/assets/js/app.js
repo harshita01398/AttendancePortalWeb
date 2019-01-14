@@ -66,9 +66,9 @@ function file_download()
         method:'get',
         success: window.open('/download'),
     }).done(function(){
-        alert("Done!");
+        alert("Your file has been downloaded!");
     }).fail(function(){
-        alert("Error!");
+        alert("Could not download the file!");
     })
 }
 
@@ -90,7 +90,7 @@ function getXls(img_path) {
         alert("Excel File Generated!");
         file_download();
     }).fail(function () {
-        alert("Error");
+        alert("Error in generating Excel File!!!");
     });
 }
 

@@ -6,10 +6,9 @@ import roi
 import rectangle
 import sys
 
-print(sys.argv[1])
 img =  cv2.imread(sys.argv[1])
-# img = cv2.imread(input("Enter the name of the image : "))
-print(img.shape)
+# img =  cv2.imread(input("Enter the name of the image : "))
+    #print(img.shape)
 
     # Resize image to appt proportion
 resized_img = rectangle.resize(img)
@@ -28,6 +27,10 @@ roi.create_row(rect_img,horizontal_lines,vertical_lines)
 
     #cv2.imshow("Rectangle",rect_img)
     #cv2.imshow("Original",img)
+
+#cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
 print("Success")
 sys.stdout.flush()
-

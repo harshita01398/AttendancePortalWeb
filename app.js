@@ -132,7 +132,6 @@ app.post('/upload_photos', function (req, res) {
 app.post('/generate_xls',function(req,res) {
     req.setTimeout(0);
     // console.log(req.body.img);
-    // let img = "C:/Users/user/Documents/Excalibur/Webapp/main/"; 
     let img = "./";
     img += req.body.img;
     // console.log(img);
