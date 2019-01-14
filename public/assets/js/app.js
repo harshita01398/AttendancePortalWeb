@@ -59,8 +59,22 @@ function handleSuccess(data) {
     }
 }
 
+function file_download()
+{
+    $.ajax({
+        url: '/download',
+        method:'get',
+        success: window.open('/download'),
+    }).done(function(){
+        alert("Done!");
+    }).fail(function(){
+        alert("Error!");
+    })
+}
+
 
 function getXls(img_path) {
+    alert("Your file is being processed!");
     $.ajax({
         url: '/generate_xls',
         method: 'post',
@@ -72,7 +86,10 @@ function getXls(img_path) {
             "charset": "utf-8"
         }
      
-    }).done(function(){ alert("Excel File Generated!");}).fail(function () {
+    }).done(function(){ 
+        alert("Excel File Generated!");
+        file_download();
+    }).fail(function () {
         alert("Error");
     });
 }

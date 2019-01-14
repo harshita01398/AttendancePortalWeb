@@ -148,12 +148,19 @@ app.post('/generate_xls',function(req,res) {
         res.send(err);
         // Results is an array consisting of messages collected during execution
         console.log(results);
+        // var file = __dirname + '/Output/Result.xls';
         res.send(results);
       });
+});
+
+app.get('/download',function(req,res){
+    var fileop = path.join(__dirname, 'Output/Result.xlsx');
+    res.setHeader('Content-disposition', 'attachment; filename=Result.xlsx');
+    res.setHeader('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.download(fileop,'Result.xlsx');
 });
 
 
 app.listen(app.get('port'), function() {
     console.log('Express started at port ' + app.get('port'));
 });
-
