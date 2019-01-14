@@ -21,6 +21,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json())
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
 /**
  * Index route
  */
@@ -159,6 +163,10 @@ app.get('/download',function(req,res){
     res.download(fileop,'Result.xlsx');
 });
 
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 app.listen(app.get('port'), function() {
     console.log('Express started at port ' + app.get('port'));
