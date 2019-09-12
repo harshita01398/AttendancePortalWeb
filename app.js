@@ -7,6 +7,18 @@ var express = require('express'),
     bodyParser = require("body-parser"),
     {PythonShell} = require('python-shell');
 
+const firebaseConfig = {
+    apiKey: "AIzaSyAojKFd4W_9jWYdwFeEZ4oSZxjWGMn4_R0",
+    authDomain: "excal-916e3.firebaseapp.com",
+    databaseURL: "https://excal-916e3.firebaseio.com",
+    projectId: "excal-916e3",
+    storageBucket: "excal-916e3.appspot.com",
+    messagingSenderId: "715149724507",
+    appId: "1:715149724507:web:064c225dd5558e039f287e"
+    };    
+
+const functions = require('firebase-functions');
+
 var img="";
 
 var app = express();
