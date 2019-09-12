@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,8 @@
   "bugs": {
     "url": "https://github.com/harshita01398/ExcalWebApp/issues"
   },
-  "engines":{
+  "engines": {
     "node": "8.11.4"
-  },
-  "scripts": {
-    "start": "node app.js"
   },
   "homepage": "https://github.com/harshita01398/ExcalWebApp#readme",
   "description": ""
