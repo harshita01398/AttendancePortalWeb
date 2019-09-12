@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attendance Portal</title>
+    <link rel="shortcut icon" href="/assets/img/aicon.ico">
+    <meta name="description" content="Convert your image file into excel sheet." />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/assets/css/home.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="content">
+                        <h1 style="color: white">Attendance Portal</h1>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                
+                    <form id="upload-photos" method="post" action="/upload_photos" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <!-- <label for="dept-input" style="color: white">Department:</label>
+                                <select name="Department">
+                                    <option value="ece">ECE</option>
+                                    <option value="cs">Computer Engineering</option>
+                                    <option value="civil">Civil</option>
+                                    <option value="mechanical">Mechanical</option>
+                                </select> -->
+
+                            <label for="name-input" style="color: white">Name:</label> 
+                            <br>
+                                <input list="name-input" style="color: black">
+                                <datalist id="name-input" name="Name" style="color: black">
+                                    <option value="P6">Gaurav Kumar</option>
+                                    <option value="A6">Neha Arora</option>
+                                    <option value="MDa">Manish Dayal</option>
+                                    <option value="LKB">Lokesh Kumar B</option>
+                                </datalist>
+
+                            <label for="sub-input" style="color: white">Subject:</label>
+                                <input list="sub-input" style="color: black">
+                                <datalist id="sub-input" name="Subject" style="color: black">
+                                    <option value="CHT">Computer Hardware & Troubleshooting</option>
+                                    <option value="OS">Operating Systems</option>
+                                    <option value="DAA">Design & Analysis of Algorithms</option>
+                                    <option value="CN">Computer Networking</option>
+                                </datalist>
+
+                            <label for="photos-input" style="color: white">File input:</label>
+                            <input id="photos-input" type="file" name="photos[]" multiple="multiple" >
+                            <!-- <p class="help-block" style="color: white">You can upload only 1 file.</p> -->
+                        </div>
+                        <input type="hidden" name="csrf_token" value="just_a_text_field" />
+                        <button class="btn btn-default btn-large" id="upBut"><i class="fas fa-upload"></i> Upload Image!</button>
+                        
+                    </form>
+                    <br/>
+                    
+                    <div class="col-md-12" id="xlsBut">
+                        <input class="btn btn-default btn-large" id="convertBut" type="submit" name="Get excel" value="Get .xls" />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped active" id="probar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <div id="album" class="row"></div>
+        </div>
+    
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>

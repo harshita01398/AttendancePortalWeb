@@ -62,7 +62,7 @@ def draw(in_im):
 	canny=cv2.dilate(canny, np.ones((7, 7), np.uint8), iterations=1)
 
 	# Find contours on Image
-	_, c, h = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+	c, h = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 	cMax = max(c, key = cv2.contourArea)
 	# print(cMax)
 

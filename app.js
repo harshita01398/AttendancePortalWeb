@@ -55,6 +55,7 @@ app.get('/', function (req, res) {
     });
 
     res.sendFile(path.join(__dirname, 'views/index.html'));
+    console.log("here");
 });
 
 /**
@@ -135,10 +136,10 @@ app.post('/upload_photos', function (req, res) {
 
 app.post('/generate_xls',function(req,res) {
     req.setTimeout(0);
-    // console.log(req.body.img);
+    console.log(req.body.img);
     let img = "./";
     img += req.body.img;
-    // console.log(img);
+    console.log(img);
     
     var options = {
         scriptPath: "./",
