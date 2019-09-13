@@ -3,3 +3,4 @@ __pycache__/
 tmp_uploads/
 uploads/
 temp_img.jpg
+node_modules
